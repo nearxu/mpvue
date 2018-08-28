@@ -57,6 +57,10 @@ module.exports = {
         options: vueLoaderConfig
       },
       {
+        test: /\.css|scss$/,
+        loader: 'style!css!px2rpx?rpxUnit=75&rpxPrecision=8' ,
+      },
+      {
         test: /\.js$/,
         include: [resolve('src'), resolve('test')],
         use: [

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <TopSwiper :tops='imgs'></TopSwiper>
    <div v-for="book in books" :key="book.id">
     <card :book="book"></card>
    </div>
@@ -9,9 +10,12 @@
 <script>
 import { get } from "@/utils/utils";
 import card from "@/components/card";
+import TopSwiper from "@/components/top-swiper";
+
 export default {
   data() {
     return {
+      imgs: [],
       books: {},
       page: 0,
       more: true
@@ -19,12 +23,17 @@ export default {
   },
   mounted() {
     this.getList(true);
-    // this.getTop();
+    this.getTop();
   },
   components: {
-    card
+    card,
+    TopSwiper
   },
   methods: {
+    async getTop() {
+      const imgs = await get("/weapp/top");
+      this.imgs = imgs.list;
+    },
     async getList(init) {
       if (init === true) {
         this.page = 0;

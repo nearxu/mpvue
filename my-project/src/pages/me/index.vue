@@ -1,11 +1,17 @@
 <template>
   <div class="container">
-   hello me
+   <Progress></Progress>
   </div>
 </template>
 
 <script>
-export default {};
+import Progress from "@/components/progress";
+
+export default {
+  components: {
+    Progress
+  }
+};
 </script>
 
 <style scoped>
