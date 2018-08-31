@@ -1,5 +1,11 @@
-import Vue from 'vue'
-import App from './index'
+import Vue from "vue";
+import App from "./index";
+// import Vuex from "vuex";
+// import store from "@/store";
 
-const app = new Vue(App)
-app.$mount()
+// Vue.use(Vuex);
+
+const app = new Vue({
+  App
+});
+app.$mount();

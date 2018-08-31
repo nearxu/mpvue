@@ -1,8 +1,12 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from "vue";
+import App from "./App";
+// import store from "@/store";
 
-Vue.config.productionTip = false
-App.mpType = 'app'
+// mpvue 写法
+// Vue.prototype.$store = store;
 
-const app = new Vue(App)
-app.$mount()
+Vue.config.productionTip = false;
+App.mpType = "app";
+
+const app = new Vue(App);
+app.$mount();
