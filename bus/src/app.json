@@ -1,0 +1,30 @@
+{
+  "pages": ["pages/route/main", "pages/setting/main", "pages/list/main"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#4287FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/route/main",
+        "text": "路线",
+        "iconPath": "static/image/tabBar/route.png",
+        "selectedIconPath": "static/image/tabBar/route@active.png"
+      },
+      {
+        "pagePath": "pages/list/main",
+        "text": "设置",
+        "iconPath": "static/image/tabBar/about.png",
+        "selectedIconPath": "static/image/tabBar/about@active.png"
+      }
+    ]
+  }
+}
