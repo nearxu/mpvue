@@ -1,25 +1,29 @@
 <template>
   <div class="container">
-      <h1>hello list</h1>
+    <!-- <busSelector /> -->
+    <scroll-view class="scrollBody" scroll-y enable-back-to-top scroll-with-animation>
       <busList />
+    </scroll-view>
   </div>
 </template>
 
 <script>
 import store from "@/store";
 import busList from "@/components/bus-list";
+import busSelector from "@/components/bus-selector";
 
 export default {
-  mounted() {
-    // this.getList();
+  onLoad() {
+    this.getList();
+    console.log("onload");
   },
   components: {
-    busList
+    busList,
+    busSelector
   },
   methods: {
     getList() {
       const place = JSON.parse(this.$root.$mp.query.place);
-      console.log(place, "place");
       store.commit("setPlace", place);
       store.dispatch("getBusList");
     }

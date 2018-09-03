@@ -1,15 +1,20 @@
 <template>
   <div class="container">
-      <h1>hello router</h1>
       <PlaceInput />
+      <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation>
+        <history />
+      </scroll-view>
   </div>
 </template>
 
 <script>
 import PlaceInput from "@/components/input";
+import history from "@/components/history";
+
 export default {
   components: {
-    PlaceInput
+    PlaceInput,
+    history
   }
 };
 </script>

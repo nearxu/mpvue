@@ -48,7 +48,7 @@ export default {
       return store.state.route.place.b.name;
     },
     isABOk() {
-      return !!this.aName && !!this.bName;
+      return this.aName && this.bName;
     }
   },
   methods: {
@@ -76,14 +76,26 @@ export default {
               longitude: res.longitude
             }
           });
+          if (this.isABOk) {
+            store.commit("saveHistory");
+            console.log(store, "store");
+          }
         }
       });
     },
-    bindPlaceSwitcherTap() {},
+    bindPlaceSwitcherTap() {
+      store.commit("switchAB");
+      if (this.isABOk) {
+        store.commit("saveHistory");
+        store.commit("reset");
+      }
+    },
     bindPlaceSearchTap() {
       // 搜索路线
       let a = store.state.route.place.a;
       let b = store.state.route.place.b;
+      store.commit("saveHistory");
+      store.commit("reset");
       store.commit("navigateToRouteList");
     }
   }

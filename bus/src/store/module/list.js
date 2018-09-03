@@ -93,6 +93,15 @@ const ListModule = {
     loading: (state, value) => {
       state.isLoading = value;
     },
+    reset: state => {
+      state.transits = [];
+    },
+    updateBusList: (state, data) => {
+      state.distance = data.distance;
+      state.taxi_cost = data.taxi_cost;
+      state.transits = data.transits;
+      // 虽然 data.transits 的数据量很大，但是放在store里面并不会直接放到小程序的data里，所以不用担心超出data的限制。
+    },
     setPlace: (state, place) => {
       // 从首页传过来的数据
       state.place = place;
@@ -135,6 +144,14 @@ const ListModule = {
           success: data => {
             wx.hideLoading();
             console.log(data, "list data show");
+            commit("updateBusList", data);
+            commit("loading", false);
+          },
+          fail: err => {
+            commit("loading", false);
+            wx.showModal({
+              title: info.errMsg
+            });
           }
         });
       } catch (err) {
