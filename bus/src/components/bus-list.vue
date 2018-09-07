@@ -23,7 +23,7 @@
         </div>
       </div>
       <div v-else>
-        <view class="list--none p40 mb20 bgFFF">
+        <view class="list-none">
         <text>没有推荐路线</text>
       </view>
       </div>
@@ -52,6 +52,8 @@ export default {
             fmt_transports: formatTransport(item.segments)
           };
         });
+      } else {
+        return [];
       }
     }
   }
@@ -64,6 +66,12 @@ export default {
     flex-direction: column;
     padding: 20px;
     border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+  }
+  .list-none {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

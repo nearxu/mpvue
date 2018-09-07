@@ -1,54 +1,53 @@
 <template>
   <div class="container">
-      hello weather
+    <Info :weatherData='weatherData' :data = "data"/>
+    <LiveList :lists = 'weatherData.index'/>
   </div>
 </template>
 
 <script>
-// import store from "@/store";
-import amapFile from "@/utils/amap-wx.js";
-
+import BMapWX from "@/lib/bmap-wx.js";
+import Info from "@/components/info";
+import LiveList from "@/components/live-list";
 export default {
+  data() {
+    return {
+      weatherData: {},
+      data: {}
+    };
+  },
   mounted() {
-    this.getweatherbaidu();
+    this.init();
   },
   methods: {
-    getWeather() {
-      wx.getLocation({
-        type: "gcj02",
-        success: geo => {
-          const data = {
-            ak: "SUaGCkLbTjwcL4ce7OfDhaGB4nYW943d",
-            location: `${geo.latitude},${geo.longitude}`,
-            output: "json"
-          };
-          wx.request({
-            url: "http://api.map.baidu.com/telematics/v3/weather",
-            method: "GET",
-            data: data,
-            header: {
-              //设置参数内容类型为x-www-form-urlencoded
-              "content-type": "application/x-www-form-urlencoded",
-              Accept: "application/json"
-            },
-            success: res => {
-              console.log(res.data, "data");
-            }
-          });
-        }
+    init() {
+      var BMap = new BMapWX({
+        ak: "0giEcwiMmNadgOnPHIQKDcFjGYTSrHvG"
       });
-    },
-    getweatherbaidu() {
-      wx.getLocation({
-        type: "gcj02",
+      BMap.weather({
         success: res => {
-          console.log(res, "red");
+          console.log(res.currentWeather[0], "reuslt", res);
+          this.weatherData = res.currentWeather[0];
         }
       });
     }
+  },
+  components: {
+    Info,
+    LiveList
   }
 };
 </script>
 
 <style scoped>
+.container {
+  display: block;
+  width: 100%;
+  height: 1000px;
+  background: #e5e5e5;
+  /* opacity: 0.8; */
+  /* background: url("../../../static/img/beach-bird-birds-235787.jpg") center
+    no-repeat;
+  background-size: cover; */
+}
 </style>

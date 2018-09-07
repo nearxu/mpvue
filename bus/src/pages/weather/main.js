@@ -6,7 +6,6 @@ app.$mount();
 export default {
   config: {
     navigationBarTitleText: "天气",
-    enablePullDownRefresh: false,
-    backgroundTextStyle: "dark"
+    enablePullDownRefresh: false
   }
 };

@@ -1,17 +1,16 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": false,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"nodeModules": true
+		"newFeature": true
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
 	"appid": "wxcfc418661b804a8d",
-	"projectname": "bus",
+	"projectname": "helper",
 	"condition": {
 		"search": {
 			"current": -1,

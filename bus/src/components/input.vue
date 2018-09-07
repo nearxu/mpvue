@@ -94,6 +94,7 @@ export default {
       // 搜索路线
       let a = store.state.route.place.a;
       let b = store.state.route.place.b;
+      console.log(a, "a", b, "b");
       store.commit("saveHistory");
       store.commit("reset");
       store.commit("navigateToRouteList");

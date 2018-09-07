@@ -1,14 +1,13 @@
 {
   "pages": [
-    "pages/route/main",
-    "pages/setting/main",
     "pages/weather/main",
+    "pages/setting/main",
+    "pages/route/main",
     "pages/list/main"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "生活小助手",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -19,14 +18,14 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/route/main",
-        "text": "路线",
+        "pagePath": "pages/weather/main",
+        "text": "天气",
         "iconPath": "static/image/tabBar/route.png",
         "selectedIconPath": "static/image/tabBar/route@active.png"
       },
       {
-        "pagePath": "pages/weather/main",
-        "text": "设置",
+        "pagePath": "pages/route/main",
+        "text": "公交",
         "iconPath": "static/image/tabBar/about.png",
         "selectedIconPath": "static/image/tabBar/about@active.png"
       }
