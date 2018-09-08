@@ -25,7 +25,7 @@ export default {
   methods: {
     init() {
       var BMap = new BMapWX({
-        ak: "0giEcwiMmNadgOnPHIQKDcFjGYTSrHvG"
+        ak: "####"
       });
       BMap.weather({
         success: res => {
