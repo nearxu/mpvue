@@ -17,6 +17,9 @@
             </div>
         </div>
     </div>
+    <div v-else class="no-history">
+      暂无历史路线
+    </div>
     </div>
 </template>
 
@@ -70,13 +73,21 @@ export default {
         display: inline-block;
         width: 25px;
         height: 25px;
+        margin-right: 5px;
       }
-      .textBox{
-        flex:1;
+      .textBox {
+        flex: 1;
         display: flex;
         justify-content: space-between;
       }
     }
+  }
+  .no-history {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    font-size: 24px;
+    color: #333333;
   }
 }
 </style>

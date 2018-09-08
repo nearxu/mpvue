@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <Info :weatherData='weatherData' :data = "data"/>
-    <LiveList :lists = 'weatherData.index'/>
+    <Future :dates='futureData'/>
+    <LiveList :lists='data'/>
   </div>
 </template>
 
@@ -9,11 +10,13 @@
 import BMapWX from "@/lib/bmap-wx.js";
 import Info from "@/components/info";
 import LiveList from "@/components/live-list";
+import Future from "@/components/future";
 export default {
   data() {
     return {
       weatherData: {},
-      data: {}
+      data: [],
+      futureData: []
     };
   },
   mounted() {
@@ -26,15 +29,19 @@ export default {
       });
       BMap.weather({
         success: res => {
-          console.log(res.currentWeather[0], "reuslt", res);
+          console.log("res", res);
           this.weatherData = res.currentWeather[0];
+          this.data = res.originalData.results[0].index;
+          this.futureData = res.originalData.results[0].weather_data;
+          console.log(this.data, "data", this.futureData);
         }
       });
     }
   },
   components: {
     Info,
-    LiveList
+    LiveList,
+    Future
   }
 };
 </script>
@@ -43,8 +50,8 @@ export default {
 .container {
   display: block;
   width: 100%;
-  height: 1000px;
-  background: #e5e5e5;
+  background: rgb(30, 136, 210);
+  color: #fff;
   /* opacity: 0.8; */
   /* background: url("../../../static/img/beach-bird-birds-235787.jpg") center
     no-repeat;

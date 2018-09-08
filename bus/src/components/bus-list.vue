@@ -6,10 +6,10 @@
                 <text :key="idx2" class="arrow" v-if="idx2>0">→</text>
                     <view :key="idx2" class="text">
 
-                    <template v-for="(item, idx3) in transport">
-                    <text :key="idx3" v-if="idx3>0">/</text>
-                    <text :key="idx3">{{item}}</text>
-                    </template>
+                      <template v-for="(item, idx3) in transport">
+                      <text :key="idx3" v-if="idx3>0"></text>
+                      <text :key="idx3">{{item}}</text>
+                      </template>
                     </view>
             </div>
             <view class="list--desc mb10">
@@ -61,12 +61,22 @@ export default {
 </script>
 <style lang="scss" scoped>
 .listBox {
+  background: rgb(30, 136, 210);
+  color: #fff;
   .list {
     display: flex;
     flex-direction: column;
     padding: 20px;
     border-bottom: 1px solid #e5e5e5;
     font-size: 14px;
+    .text {
+      display: flex;
+      flex-direction: column;
+      .bus-state {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
   .list-none {
     display: flex;

@@ -1,10 +1,5 @@
 {
-  "pages": [
-    "pages/weather/main",
-    "pages/setting/main",
-    "pages/route/main",
-    "pages/list/main"
-  ],
+  "pages": ["pages/weather/main", "pages/route/main", "pages/list/main"],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "生活小助手",

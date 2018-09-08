@@ -1,7 +1,6 @@
 <template>
     <div class="live-list">
         <div class="list" v-for='(item,index) in lists' :key='index'>
-            <image :src='bcgImgList[index].src' />
             <div class="list-column">
                 <h1>{{item.tipt}} {{item.zs}}</h1>
                 <p>{{item.des}}</p>
@@ -12,32 +11,12 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(this.lists, "lists");
+  },
   props: ["lists"],
   data() {
-    return {
-      bcgImgList: [
-        {
-          src: "/static/img/clothing.png",
-          topColor: "#393836"
-        },
-        {
-          src: "/static/img/carwashing.png",
-          topColor: "#0085e5"
-        },
-        {
-          src: "/static/img/pill.png",
-          topColor: "#2d2225"
-        },
-        {
-          src: "/static/img/running.png",
-          topColor: "#004a89"
-        },
-        {
-          src: "/static/img/sun.png",
-          topColor: "#004a89"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
@@ -46,10 +25,11 @@ export default {
   font-size: 24px;
   color: #fff;
   z-index: 10;
-  background: url("/static/img/beach-bird-birds-235787.jpg") center no-repeat;
-  background-size: cover;
+  // background: url("/static/img/beach-bird-birds-235787.jpg") center no-repeat;
+  // background-size: cover;
   .list {
-    padding: 30px;
+    margin-top: 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     // border-bottom: 2px solid rgb(26, 21, 12);
